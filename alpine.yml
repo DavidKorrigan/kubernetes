@@ -9,7 +9,7 @@ spec:
       command: ["sleep","3600"]
     affinity:
       podAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
+        requiredDuringSchedulingIgnoredDuringExecution:
         - labelSelector:
           matchExpressions:
           - key: app

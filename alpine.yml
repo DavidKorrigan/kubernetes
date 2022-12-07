@@ -9,3 +9,13 @@ spec:
     - name: alpine
       image: alpine:3.12
       command: ["sleep","3600"]
+    affinity:
+      podAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app
+                operator: In
+                values:
+                - web
+      topologyKey: kubernetes.io/zone

@@ -18,4 +18,4 @@ spec:
                 operator: In
                 values:
                 - web
-      topologyKey: kubernetes.io/zone
+        topologyKey: kubernetes.io/zone

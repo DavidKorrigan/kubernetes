@@ -15,7 +15,7 @@ spec:
         - labelSelector:
             matchExpressions:
             - key: app
-                operator: In
-                values:
-                - web
+               operator: In
+               values:
+               - web
         topologyKey: kubernetes.io/zone

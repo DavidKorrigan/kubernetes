@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web4
+  labels:
+    app2: web
+spec:
+  containers:
+  - name: www
+    image: httpd:2.4-alpine

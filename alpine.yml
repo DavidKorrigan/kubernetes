@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: debug
+    labels:
+        app: myapp
+spec:
+    containers:
+    - name: alpine
+      image: alpine:3.12
+      command: ["sleep","3600"]

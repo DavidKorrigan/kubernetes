@@ -22,13 +22,6 @@ kubectl get pods
 kubectl get nodes -o wide
 kubectl get services -o wide
 kubectl get pods -o wide
-# Get description of a specific item
-kubectl describe services {{service_name}}
-kubectl describe services s1
-kubectl describe nodes {{node_name}}
-kubectl describe nodes host41
-kubectl describe pods {{pod_name}}
-kubectl describe pods web1
 # --show-labels
 kubectl get services --show-labels
 kubectl get nodes --show-labels
@@ -61,6 +54,13 @@ kubectl apply -f .
 
 ### Debug
 ```sh
+# Get description of a specific item
+kubectl describe services {{service_name}}
+kubectl describe services s1
+kubectl describe nodes {{node_name}}
+kubectl describe nodes host41
+kubectl describe pods {{pod_name}}
+kubectl describe pods web1
 # Get a shell from a pod
 kubectl exec -it {{pod_name}} -- sh
 kubectl exec -it debug -- sh

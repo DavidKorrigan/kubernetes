@@ -33,6 +33,8 @@ kubectl describe pods web1
 kubectl get services --show-labels
 kubectl get nodes --show-labels
 kubectl get pods --show-labels
+# Display nodes & pods
+kubectl get all
 ```
 
 ### Apply configuration

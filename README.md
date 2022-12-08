@@ -35,6 +35,7 @@ kubectl get nodes --show-labels
 kubectl get pods --show-labels
 # Display nodes & pods
 kubectl get all
+kubectl get namespace
 ```
 
 ### Apply configuration
@@ -69,10 +70,21 @@ kubectl delete pods debug
 kubectl delete all --all --force
 ```
 
+### Set asset to namepace
+```sh
+kubectl apply -f {{file_name}} --namespace={{name_namespace}}
+kubectl apply -f web-pod.yml --namespace=production
+```
 
+### Context
+```sh
+# Create & set context
+kubectl config set-context {{name_context}} --cluster={{name_cluster}} --user={{name_user}} --namespace={{name_ns}}
+kubectl config set-context dev --cluster=cluster.local --user=kubernetes-admin --namespace=development
+# Use context
+kubectl config use-context {{name_context}}
+kubectl config use-context dev
 
+```
 
-
-
-
-
+kubectl explain ..

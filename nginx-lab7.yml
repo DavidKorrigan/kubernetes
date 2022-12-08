@@ -14,5 +14,5 @@ spec:
       subPath: "nginx.conf"
   volumes:
   - name: config
-     configMap:
-       name: nginx-config
+    configMap:
+      name: nginx-config

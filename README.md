@@ -96,6 +96,7 @@ kubectl config use-context dev
 kubectl cp web:/etc/nginx/nginx.conf /tmp/nginx.conf
 
 kubectl create configmap nginx-conf --from-file=nginx.conf
+kubectl get configmap
 ```
 
 kubectl explain ..

@@ -41,6 +41,9 @@ kubectl get namespace
 kubectl get pv
 # Display Persistent Volume Claim
 kubectl get pvc
+# Display ConfigMap
+kubectl get configmap
+kubectl get cm
 ```
 
 ### Apply configuration
@@ -94,10 +97,10 @@ kubectl config use-context dev
 ```sh
 # Copy from pod
 kubectl cp web:/etc/nginx/nginx.conf /tmp/nginx.conf
-
+# Create ConfigMap from file
+kubectl create configmap {{name_configmap}} --from-file={{name_file}}
 kubectl create configmap nginx-conf --from-file=nginx.conf
-kubectl get configmap
-kubectl create cm mysql-pass --from-env-file=./conf.env
+
 ```
 
 kubectl explain ..

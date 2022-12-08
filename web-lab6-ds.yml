@@ -16,7 +16,7 @@ spec:
     command: ["bin/sh","-c","while true; do echo `hostname` `date` >> /mnt/index.html; sleep 300; done"]
     volumeMounts:
       - name: nfsvol
-      mouthPath: /mnt
+        mouthPath: /mnt
   volumes:
     - name: nfsvol
       persisentVolume:

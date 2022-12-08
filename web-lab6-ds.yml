@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+  containers:
+  - name: debug
+    image: alpine:3.12
+    command: ["bin/sh","-c","while true; do echo `hostname` `date` >> /mnt/index.html"; sleep 300; done"]
+    volumeMounts:
+      - name: nfsvol
+      mouthPath: /mnt
+  volumes:
+    - name: nfsvol
+      persisentVolume:
+        className: web

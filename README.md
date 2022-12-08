@@ -106,10 +106,21 @@ kubectl create configmap nginx-conf --from-file=nginx.conf
 ### Secret
 ```sh
 # Secret from file
+kubectl create secret generic {{secret_name}} --from-file={{file_name}}
 kubectl create secret generic nginx-config --from-file=nginx.conf
 # Secret from environment variable
+kubectl create secret generic {{secret_name}} --from-literal={{key}}={{value}}
 kubectl create secret generic mysql-pass --from-literal=password=root
+# Display secret
+kubectl get sc {{secret_name}} -o yaml
 kubectl get sc mysql-pass -o yaml
 ```
 
-kubectl explain ..
+### Help
+```sh
+kubectl explain {{name_type}}
+kubectl explain pods
+kubectl explain nodes
+kubectl explain configmap
+...
+```

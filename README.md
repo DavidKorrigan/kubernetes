@@ -89,7 +89,11 @@ kubectl config set-context dev --cluster=cluster.local --user=kubernetes-admin -
 # Use context
 kubectl config use-context {{name_context}}
 kubectl config use-context dev
+```
 
+```sh
+# Copy from pod
+kubectl cp web:/etc/nginx/nginx.conf /tmp/nginx.conf
 ```
 
 kubectl explain ..

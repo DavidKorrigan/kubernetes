@@ -14,6 +14,6 @@ spec:
   - name: debug
     image: alpine:3.12
     command: ["bin/sh","-c","while true; do echo `hostname` `date` >> /mnt/index.html; sleep 300; done"]
-    volumeMounts:
-      - name: nfsvol
-        mouthPath: /web
+  volumeMounts:
+    - name: nfsvol
+      mouthPath: /web

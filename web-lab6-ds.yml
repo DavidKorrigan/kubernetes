@@ -10,15 +10,15 @@ spec:
     metadata:
       labels:
         app: web-ds
-  spec:
-    containers:
-    - name: debug
-      image: alpine:3.12
-      command: ["bin/sh","-c","while true; do echo `hostname` `date` >> /mnt/index.html; sleep 300; done"]
-      volumeMounts:
+    spec:
+      containers:
+      - name: debug
+        image: alpine:3.12
+        command: ["bin/sh","-c","while true; do echo `hostname` `date` >> /mnt/index.html; sleep 300; done"]
+        volumeMounts:
+        - name: data
+          mountPath: /mnt
+      volumes:
       - name: data
-        mountPath: /mnt
-    volumes:
-    - name: data
-      persistentVolumeClaim:
-          claimName: nfs-pvc
+        persistentVolumeClaim:
+            claimName: nfs-pvc

@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: web
+  name: web-ds
 spec:
   selector:
     matchLabels:
-      app: web
+      app: web-ds
   template:
     metadata:
       labels:
-        app: web
+        app: web-ds
   containers:
   - name: debug
     image: alpine:3.12
     command: ["bin/sh","-c","while true; do echo `hostname` `date` >> /mnt/index.html; sleep 300; done"]
     volumeMounts:
-      - name: nfsvol
-        mouthPath: /web
+    - name: data
+      mountPath: /mnt
   volumes:
-  -name: web
+  - name: data
     persistentVolumeClaim:
-      claimName: web
+        claimName: nfs-pvc

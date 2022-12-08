@@ -65,6 +65,8 @@ curl {{node_name}}:30000
 # Delete pod
 kubectl delete pods {{pod_name}}
 kubectl delete pods debug
+# Force to delete everything
+kubectl delete all --all --force
 ```
 
 

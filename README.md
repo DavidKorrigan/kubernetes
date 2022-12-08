@@ -44,6 +44,10 @@ kubectl get pvc
 # Display ConfigMap
 kubectl get configmap
 kubectl get cm
+# Display jobs
+kubectl get job
+# Display cronjobs
+kubectl get cronjob
 ```
 
 ### Apply configuration

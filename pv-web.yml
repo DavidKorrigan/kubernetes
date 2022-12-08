@@ -6,8 +6,6 @@ spec:
   storageClassName: nfs
   accessModes:
     - ReadWriteOnce
-  volumes:
-  - name: web
   nfs:
     server: 192.168.98.1
     path: /home/shares/user4

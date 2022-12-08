@@ -4,6 +4,8 @@ metadata:
   name: web
 spec:
   storageClassName: nfs
+  capacity:
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   nfs:

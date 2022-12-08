@@ -101,7 +101,7 @@ kubectl cp web:/etc/nginx/nginx.conf /tmp/nginx.conf
 kubectl create configmap {{name_configmap}} --from-file={{name_file}}
 kubectl create configmap nginx-conf --from-file=nginx.conf
 # Secret from file
-kubectl create secret generic nginx-conf --from-file=nginx.conf
+kubectl create secret generic nginx-config --from-file=nginx.conf
 # Secret from environment variable
 kubectl create secret generic mysql-pass --from-literal=password=root
 kubectl get sc/mysql-pass -o yaml

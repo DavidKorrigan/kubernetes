@@ -13,7 +13,7 @@ spec:
   containers:
   - name: debug
     image: alpine:3.12
-    command: ["bin/sh","-c","while true; do echo `hostname` `date` >> /mnt/index.html"; sleep 300; done"]
+    command: ["bin/sh","-c","while true; do echo `hostname` `date` >> /mnt/index.html; sleep 300; done"]
     volumeMounts:
       - name: nfsvol
       mouthPath: /mnt

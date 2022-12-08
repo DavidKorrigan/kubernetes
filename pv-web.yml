@@ -3,12 +3,9 @@ kind: PersistentVolume
 metadata:
   name: web
 spec:
-  storageClassName: manual
+  storageClassName: nfs
   accessModes:
     - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
   volumes:
   - name: web
   nfs:

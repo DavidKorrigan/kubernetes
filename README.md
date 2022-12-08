@@ -35,7 +35,12 @@ kubectl get nodes --show-labels
 kubectl get pods --show-labels
 # Display nodes & pods
 kubectl get all
+# Display namespace
 kubectl get namespace
+# Display Persistent Volume
+kubectl get pv
+# Display Persistent Volume Claim
+kubectl get pvc
 ```
 
 ### Apply configuration

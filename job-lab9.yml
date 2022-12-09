@@ -10,7 +10,7 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: batch
-        image: alpine:1.17
+        image: alpine:3.12
         command: [“mkdir“, “backup“]
         volumeMounts:
         - name: data

@@ -26,7 +26,7 @@ spec:
               mountPath: /mnt
           restartPolicy: OnFailure
           nodeSelector:
-            kubernetes.io/hostname: host141
+            kubernetes.io/hostname: host41
 
           volumes:
           - name: data

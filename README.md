@@ -10,6 +10,8 @@ kubectl config view
 ## Basic commands
 ### Retrieve information
 ```sh
+# Display resources available
+kubectl api-resources
 # Display context
 kubectl config get-contexts
 # Display the services

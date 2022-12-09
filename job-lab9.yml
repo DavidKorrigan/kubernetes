@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init
+spec:
+  completions: 1
+  parallelism: 1
+  template:
+  spec:
+    restartPolicy: OnFailure
+    containers:
+    - name: batch
+      image: alpine:1.17
+      command: [“mkdir“, “backup“]
+      volumeMounts:
+      - name: data
+        mountPath: /mnt
+    volumes:
+    - name: data
+      persistentVolumeClaim:
+        claimName: nfs-pvc

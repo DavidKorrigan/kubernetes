@@ -1,20 +1,38 @@
-apiVersion: batch/v1
+apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: backup
+  name: cron
 spec:
-  schedule: "* * * * *"
+  schedule: "*/1 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
           containers:
-          - name: cron-example
-            image: alpine:1.17
-            args:
-            - /bin/sh
-            - -c
-            - tar czvf backup.tar.gz /var/log/*
+          - name: backup
+            image: alpine:3.12
+            command: ["/bin/sh"]
+            args: ["-c","tar -cvf /mnt/$BACKUP_DIR/backup.tar.`date +%h%d-%H%M` /tmp"]
+            env:
+            - name: BACKUP_DIR
+              valueFrom:
+                configMapKeyRef:
+                  name: backup-dir
+                  key: dir
+            volumeMounts:
+            - name: logs
+              mountPath: /tmp
+            - name: data
+              mountPath: /mnt
           restartPolicy: OnFailure
           nodeSelector:
-            roles: master
+            kubernetes.io/hostname: host141
+
+          volumes:
+          - name: data
+            persistentVolumeClaim:
+              claimName: nfs-pvc
+          - name: logs
+            hostPath:
+              path: /var/log
+              type: Directory

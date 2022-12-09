@@ -3,15 +3,20 @@ kind: Job
 metadata:
   name: init
 spec:
-  completions: 1
-  parallelism: 1
   template:
     spec:
       restartPolicy: OnFailure
       containers:
-      - name: batch
+      - name: init
         image: alpine:3.12
-        command: [“mkdir“, “backup“]
+        command: ["/bin/sh"]
+        args: ["-c","mkdir /mnt/$BACKUP_DIR"]
+        env:
+        - name: BACKUP_DIR
+          valueFrom:
+            configMapKeyRef:
+              name: backup-dir
+              key: dir
         volumeMounts:
         - name: data
           mountPath: /mnt

@@ -39,7 +39,7 @@ kubectl get configmap
 kubectl get cm
 # Display jobs
 kubectl get job
-# Display cronjobs
+# Display cronjob
 kubectl get cronjob
 ```
 

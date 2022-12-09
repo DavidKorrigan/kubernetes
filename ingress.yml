@@ -16,7 +16,7 @@ spec:
             name: service1
             port:
               number: 80
-  - host: dep242.formation.local
+  - host: dep42.formation.local
     http:
       paths:
       - pathType: Prefix
